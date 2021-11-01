@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		163D01F327304C0600145D00 /* PaginatedScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163D01F227304C0600145D00 /* PaginatedScrollView.swift */; };
 		163DEFC0272DC0CF00473348 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163DEFBF272DC0CF00473348 /* AppDelegate.swift */; };
 		163DEFC2272DC0CF00473348 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163DEFC1272DC0CF00473348 /* SceneDelegate.swift */; };
 		163DEFC4272DC0CF00473348 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163DEFC3272DC0CF00473348 /* ProductListViewController.swift */; };
@@ -18,6 +19,8 @@
 		163DEFE5272DC0D000473348 /* ProductListsWithPullToRefreshUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163DEFE4272DC0D000473348 /* ProductListsWithPullToRefreshUITests.swift */; };
 		163DEFF9272DC53900473348 /* ProdcutListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163DEFF8272DC53900473348 /* ProdcutListViewModel.swift */; };
 		163DEFFE272E088F00473348 /* Modal.json in Resources */ = {isa = PBXBuildFile; fileRef = 163DEFFD272E088F00473348 /* Modal.json */; };
+		16D89948272ED18700B5BA55 /* ProductListViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D89947272ED18700B5BA55 /* ProductListViewCoordinator.swift */; };
+		16D8994D272ED5D300B5BA55 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D8994C272ED5D300B5BA55 /* BaseCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		163D01F227304C0600145D00 /* PaginatedScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatedScrollView.swift; sourceTree = "<group>"; };
 		163DEFBC272DC0CF00473348 /* ProductListsWithPullToRefresh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProductListsWithPullToRefresh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		163DEFBF272DC0CF00473348 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		163DEFC1272DC0CF00473348 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +59,8 @@
 		163DEFE6272DC0D000473348 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		163DEFF8272DC53900473348 /* ProdcutListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdcutListViewModel.swift; sourceTree = "<group>"; };
 		163DEFFD272E088F00473348 /* Modal.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Modal.json; sourceTree = "<group>"; };
+		16D89947272ED18700B5BA55 /* ProductListViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewCoordinator.swift; sourceTree = "<group>"; };
+		16D8994C272ED5D300B5BA55 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +88,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		163D01F727304ED000145D00 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				163D01F227304C0600145D00 /* PaginatedScrollView.swift */,
+				163DEFC3272DC0CF00473348 /* ProductListViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		163DEFB3272DC0CF00473348 = {
 			isa = PBXGroup;
 			children = (
@@ -105,11 +120,12 @@
 		163DEFBE272DC0CF00473348 /* ProductListsWithPullToRefresh */ = {
 			isa = PBXGroup;
 			children = (
+				163D01F727304ED000145D00 /* View */,
+				16D89946272ED13900B5BA55 /* Coordinator */,
 				163DF002272ECA9700473348 /* Models */,
 				163DEFFD272E088F00473348 /* Modal.json */,
 				163DEFBF272DC0CF00473348 /* AppDelegate.swift */,
 				163DEFC1272DC0CF00473348 /* SceneDelegate.swift */,
-				163DEFC3272DC0CF00473348 /* ProductListViewController.swift */,
 				163DEFC5272DC0CF00473348 /* Main.storyboard */,
 				163DEFCB272DC0CF00473348 /* Assets.xcassets */,
 				163DEFCD272DC0CF00473348 /* LaunchScreen.storyboard */,
@@ -143,6 +159,15 @@
 				163DEFF8272DC53900473348 /* ProdcutListViewModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		16D89946272ED13900B5BA55 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				16D89947272ED18700B5BA55 /* ProductListViewCoordinator.swift */,
+				16D8994C272ED5D300B5BA55 /* BaseCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,9 +301,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16D89948272ED18700B5BA55 /* ProductListViewCoordinator.swift in Sources */,
 				163DEFF9272DC53900473348 /* ProdcutListViewModel.swift in Sources */,
 				163DEFC4272DC0CF00473348 /* ProductListViewController.swift in Sources */,
+				163D01F327304C0600145D00 /* PaginatedScrollView.swift in Sources */,
 				163DEFCA272DC0CF00473348 /* ProductListsWithPullToRefresh.xcdatamodeld in Sources */,
+				16D8994D272ED5D300B5BA55 /* BaseCoordinator.swift in Sources */,
 				163DEFC0272DC0CF00473348 /* AppDelegate.swift in Sources */,
 				163DEFC2272DC0CF00473348 /* SceneDelegate.swift in Sources */,
 			);
