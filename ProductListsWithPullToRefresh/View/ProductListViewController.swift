@@ -48,11 +48,15 @@ extension ProductListViewController: UITableViewDataSource {
 
 extension ProductListViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.tableView.observeScrolling()
     }
 }
 
 extension ProductListViewController: PaginationDelegate {
     func refresh() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.tableView.removeRfresshControl()
+        }
     }
     
     func loadMore() {

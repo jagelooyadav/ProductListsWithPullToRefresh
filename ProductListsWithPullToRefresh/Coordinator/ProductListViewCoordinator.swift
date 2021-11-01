@@ -13,7 +13,6 @@ protocol ProdcutListCoordinatorProtocol: class {
 
 class ProdcutListCoordinator: BaseCoordinator, ProdcutListCoordinatorProtocol {
     override func start() {
-        
     }
     
     func showDetail(detailViewModel: FeedDataViewModelProtocol) {
