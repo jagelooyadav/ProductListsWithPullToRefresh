@@ -12,17 +12,21 @@ struct FetchRequest {
     let location: String
 }
 
-struct Response<T> {
-    let status: Bool
-    let serverErrorMessage: String
+struct Response<T: Decodable>: Decodable {
+    let status: Bool?
+    let serverErrorMessage: String?
     let data: T?
 }
 
-struct FeedData {
+struct FeedData: Decodable {
     let categoryId: String
     let displayName: String
     let detailText: String
     let imageURLString: String
+}
+
+struct FeedDataResponse: Decodable {
+    let feeds: [FeedData]
 }
 
 protocol ProductServiceProvider {
@@ -30,8 +34,11 @@ protocol ProductServiceProvider {
 }
 
 protocol ProdcutListViewModelProtocol {
-    var feeds: [FeedDataViewModelProtocol] { get set }
+    var feeds: [FeedDataViewModelProtocol] { get }
+    var coordinator: ProdcutListCoordinatorProtocol? { get }
     func fetchFeeds()
+    func showDetail(detailVM: FeedDataViewModelProtocol)
+    var notify: (() -> Void)? { get set }
 }
 
 protocol FeedDataViewModelProtocol {
@@ -56,8 +63,17 @@ class FeedDataViewModel: FeedDataViewModelProtocol {
 }
 
 class ProdcutListViewModel: ProdcutListViewModelProtocol {
+    
+    weak var coordinator: ProdcutListCoordinatorProtocol?
+    var notify: (() -> Void)?
+    
+    var feeds: [FeedDataViewModelProtocol] = [] {
+        didSet {
+            self.notify?()
+        }
+    }
+    
     private let service: ProductServiceProvider
-    var feeds: [FeedDataViewModelProtocol] = []
     
     init(service: ProductServiceProvider) {
         self.service = service
@@ -74,6 +90,10 @@ class ProdcutListViewModel: ProdcutListViewModelProtocol {
                     break
             }
         }
+    }
+    
+    func showDetail(detailVM: FeedDataViewModelProtocol) {
+        self.coordinator?.showDetail(detailViewModel: detailVM)
     }
 }
 
